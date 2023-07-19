@@ -7,6 +7,7 @@ import {
   TableRow,
   TableCell,
 } from "@mui/material";
+import { PencilSquare, Trash } from "react-bootstrap-icons";
 import "../styles/style.css";
 
 const ThoughtList = ({ thoughtArr, setThoughtArr }) => {
@@ -45,11 +46,11 @@ const ThoughtList = ({ thoughtArr, setThoughtArr }) => {
 
   return (
     <div>
-      <TableContainer className="tblContainer w-100 rounded rounded-4">
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <TableContainer className="tblContainer w-100 rounded rounded-3">
+        <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell className="listLabels" colSpan={3}>
+              <TableCell id="lblThoughts" className="listLabels" colSpan={3}>
                 Thoughts
               </TableCell>
             </TableRow>
@@ -58,24 +59,24 @@ const ThoughtList = ({ thoughtArr, setThoughtArr }) => {
             {thoughtArr.map((thought, index) => (
               <TableRow key={index + 1}>
                 <TableCell>
-                  {thought.thoughtCreationDate}
-                  <br />
-                  {thought.thoughtDetails}
+                  <small>Created: {thought.thoughtCreationDate}</small>
+
+                  <p>{thought.thoughtDetails}</p>
                 </TableCell>
                 <TableCell>
                   <button
-                    className="btn btn-success"
+                    className="btn btn-primary"
                     onClick={() => {
                       handleEditThought(thought.thoughtID);
                     }}>
-                    Edit
+                    <PencilSquare />
                   </button>
                 </TableCell>
                 <TableCell>
                   <button
-                    className="btn btn-success"
+                    className="btn btn-danger"
                     onClick={() => handleDeleteThought(thought.thoughtID)}>
-                    Delete
+                    <Trash />
                   </button>
                 </TableCell>
               </TableRow>

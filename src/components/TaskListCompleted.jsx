@@ -12,22 +12,28 @@ import "../styles/style.css";
 const TaskListCompleted = ({ completedTasksArr }) => {
   return (
     <div>
-      <TableContainer className="tblContainer w-100 rounded rounded-4">
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <TableContainer className="tblContainer w-100 rounded rounded-3">
+        <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell className="listLabels">Completed Tasks</TableCell>
+              <TableCell
+                id="lblCompletedTasks"
+                className="listLabels text-secondary">
+                Completed Tasks
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {completedTasksArr.map((task, index) => (
               <TableRow key={index + 1}>
                 <TableCell>
-                  Created: {task.taskCreationDate}
-                  <br />
-                  Due: {task.taskDueDate}
-                  <br />
-                  Task: {task.taskDetails}
+                  <small className="text-secondary">
+                    Created: {task.taskCreationDate}
+                    <br />
+                    Due: {task.taskDueDate}
+                  </small>
+
+                  <p className="text-secondary">{task.taskDetails}</p>
                 </TableCell>
               </TableRow>
             ))}

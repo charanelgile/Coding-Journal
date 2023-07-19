@@ -7,6 +7,7 @@ import {
   TableRow,
   TableCell,
 } from "@mui/material";
+import { PencilSquare, CheckSquare, Trash } from "react-bootstrap-icons";
 import "../styles/style.css";
 
 function TaskList({
@@ -74,11 +75,11 @@ function TaskList({
 
   return (
     <div>
-      <TableContainer className="tblContainer w-100 rounded rounded-4">
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <TableContainer className="tblContainer w-100 rounded rounded-3">
+        <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell className="listLabels" colSpan={4}>
+              <TableCell id="lblTasks" className="listLabels" colSpan={4}>
                 Tasks
               </TableCell>
             </TableRow>
@@ -87,11 +88,13 @@ function TaskList({
             {taskArr.map((task, index) => (
               <TableRow key={index + 1}>
                 <TableCell>
-                  Created: {task.taskCreationDate}
-                  <br />
-                  Due: {task.taskDueDate}
-                  <br />
-                  Task: {task.taskDetails}
+                  <small>
+                    Created: {task.taskCreationDate}
+                    <br />
+                    Due: {task.taskDueDate}
+                  </small>
+
+                  <p>{task.taskDetails}</p>
                 </TableCell>
                 <TableCell>
                   <button
@@ -99,21 +102,21 @@ function TaskList({
                     onClick={() => {
                       handleEditTask(task.taskID);
                     }}>
-                    Edit
+                    <PencilSquare />
                   </button>
                 </TableCell>
                 <TableCell>
                   <button
-                    className="btn btn-primary"
+                    className="btn btn-success"
                     onClick={() => handleMarkTaskAsDone(task.taskID)}>
-                    Mark as Done
+                    <CheckSquare />
                   </button>
                 </TableCell>
                 <TableCell>
                   <button
-                    className="btn btn-primary"
+                    className="btn btn-danger"
                     onClick={() => handleDeleteTask(task.taskID)}>
-                    Delete
+                    <Trash />
                   </button>
                 </TableCell>
               </TableRow>
