@@ -50,22 +50,23 @@ const TaskInput = () => {
   }, [completedTasksArr]);
 
   return (
-    <div className="w-100">
-      <div className="container-fluid d-flex">
-        <h4>Tasks for the Day</h4>
+    <div className="divContainer">
+      <div id="tasksHeader" className="container-fluid m-0 p-0">
+        <h5>Tasks for the Day</h5>
         <p>
-          Date: {mm + 1} / {dd} / {yyyy}
+          Date: {mm + 1}-{dd}-{yyyy}
         </p>
       </div>
 
-      <div>
+      <div className="divForms">
         <form onSubmit={handleSaveTask}>
+          <label htmlFor="task">Enter your to-do:</label>
           <input
             id="task"
             name="task"
             type="text"
-            placeholder="Enter your to-do"
-            className="form-control"
+            required
+            className="form-control shadow-none"
             ref={taskRef}
           />
 
@@ -74,16 +75,16 @@ const TaskInput = () => {
             id="due"
             name="due"
             type="date"
-            className="form-control"
+            required
+            className="form-control shadow-none"
             ref={dueRef}
           />
 
-          <button
-            id="saveTask"
-            type="submit"
-            className="btn btn-primary w-25 mt-3">
-            Save Task
-          </button>
+          <div>
+            <button id="saveTask" type="submit" className="btn fw-bold">
+              Save Task
+            </button>
+          </div>
         </form>
       </div>
 

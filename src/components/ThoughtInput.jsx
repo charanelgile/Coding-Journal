@@ -36,29 +36,29 @@ function ThoughtInput() {
   }, [thoughtArr]);
 
   return (
-    <div className="w-100">
-      <div className="container-fluid d-flex">
-        <h4>Thoughts for the Day</h4>
+    <div className="divContainer">
+      <div id="thoughtsHeader" className="container-fluid m-0 p-0">
+        <h5>Thoughts for the Day</h5>
         <p>
-          Date: {mm + 1} / {dd} / {yyyy}
+          Date: {mm + 1}-{dd}-{yyyy}
         </p>
       </div>
 
-      <div>
+      <div className="divForms">
         <form onSubmit={handleSaveThought}>
+          <label htmlFor="thought">What's on your mind?</label>
           <textarea
             id="thought"
             name="thought"
-            placeholder="What's on your mind?"
-            className="form-control"
+            required
+            className="form-control shadow-none"
             ref={thoughtRef}></textarea>
 
-          <button
-            id="saveThought"
-            type="submit"
-            className="btn btn-success w-25 mt-3">
-            Save Thought
-          </button>
+          <div>
+            <button id="saveThought" type="submit" className="btn fw-bold">
+              Save Thought
+            </button>
+          </div>
         </form>
       </div>
 

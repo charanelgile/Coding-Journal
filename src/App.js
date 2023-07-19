@@ -1,4 +1,3 @@
-import "./App.css";
 import ThoughtInput from "./components/ThoughtInput";
 import TaskInput from "./components/TaskInput";
 import "./styles/style.css";

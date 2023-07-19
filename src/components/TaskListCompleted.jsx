@@ -12,16 +12,11 @@ import "../styles/style.css";
 const TaskListCompleted = ({ completedTasksArr }) => {
   return (
     <div>
-      <TableContainer>
-        <Table
-          sx={{ minWidth: 650 }}
-          aria-label="simple table"
-          className="table table-striped">
+      <TableContainer className="tblContainer w-100 rounded rounded-4">
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="center" colSpan={4}>
-                Completed Tasks
-              </TableCell>
+              <TableCell className="listLabels">Completed Tasks</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

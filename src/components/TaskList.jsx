@@ -74,14 +74,11 @@ function TaskList({
 
   return (
     <div>
-      <TableContainer>
-        <Table
-          sx={{ minWidth: 650 }}
-          aria-label="simple table"
-          className="table table-striped">
+      <TableContainer className="tblContainer w-100 rounded rounded-4">
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="center" colSpan={4}>
+              <TableCell className="listLabels" colSpan={4}>
                 Tasks
               </TableCell>
             </TableRow>
